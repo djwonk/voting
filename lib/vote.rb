@@ -1,5 +1,4 @@
-# example model file
-class Profile
+class Election
   include DataMapper::Resource
 
   property :id,         Serial

@@ -14,4 +14,10 @@ describe 'Candidate' do
     @candidate.save.should be_false
     @candidate.errors[:name].should include("Name must not be blank")
   end
+
+  specify 'should require an election' do
+    @candidate = Candidate.new
+    @candidate.save.should be_false
+    @candidate.errors[:election_id].should include("Election must not be blank")
+  end
 end
