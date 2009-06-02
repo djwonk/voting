@@ -1,7 +1,6 @@
 = Open Vote Web Service
 
-A base Sinatra application template. Just fork and build. Yay!
-Includes DataMapper, RSpec, and Haml, all ready to go.
+Work in progress.
 
 == Configuration
 
