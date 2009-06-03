@@ -8,12 +8,14 @@ require 'dm-validations'
 require 'dm-aggregates'
 require 'dm-is-state_machine'
 require 'haml'
+require 'builder'
 
 require 'voting/domain'
 require 'voting/user'
 require 'voting/candidate'
 require 'voting/election'
 require 'voting/vote'
+require 'voting/helpers'
 
 module Voting
   VERSION     = '0.1'
