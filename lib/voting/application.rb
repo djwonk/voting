@@ -1,6 +1,7 @@
 module Voting
   class Application < Sinatra::Base
     configure do |app|
+      app.enable :static
       app.set(Voting.config)
       DataMapper.setup(:default, app.database_uri)
     end
