@@ -2,6 +2,7 @@ require 'rubygems'
 require 'spec'
 require 'spec/interop/test'
 require 'rack/test'
+require 'rspec_hpricot_matchers'
 
 $LOAD_PATH.unshift("#{File.dirname(__FILE__)}/../lib")
 require "#{File.dirname(__FILE__)}/../lib/voting"
@@ -18,6 +19,9 @@ require "#{File.dirname(__FILE__)}/factories"
 DataMapper.setup(:default, "sqlite3::memory:")
 
 Spec::Runner.configure do |config|
+  # include additional matchers
+  config.include(RspecHpricotMatchers)
+
   # reset database before each example is run
   config.before(:each) { DataMapper.auto_migrate! }
 end

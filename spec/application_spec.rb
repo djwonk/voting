@@ -10,7 +10,7 @@ describe 'main application' do
   specify 'should show the default index page' do
     get '/'
     last_response.should be_ok
-    last_response.body.should match(/Main Page/)
+    last_response.body.should have_tag('h1', :text => 'Main Page')
   end
 
   specify 'should have more specs' do
