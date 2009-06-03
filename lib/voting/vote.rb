@@ -21,8 +21,8 @@ module Voting
 
     private
 
-    # TODO: replace vote instead? if allowing updates? hmm...
     def verify_unique
+      # TODO: implement option on election to prevent vote overwriting?
       if candidate && user && Voting::Vote.first(:user_id => user_id, :candidate_id => candidate_id)
         [false, "User has already voted for a candidate in this election"]
       else

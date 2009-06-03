@@ -28,11 +28,11 @@ end
 namespace :gems do
   desc 'Install required gems'
   task :install do
-    required_gems = %w{ sinatra rspec rack-test dm-core dm-more haml thoughtbot-factory_girl }
+    required_gems = %w{ sinatra rspec rack-test dm-core dm-more haml thoughtbot-factory_girl vegas }
     required_gems.each { |required_gem| system "sudo gem install #{required_gem}" }
   end
 end
 
 task :environment do
-  require 'environment'
+  require "#{File.expand_path(File.dirname(__FILE__))}/lib/voting"
 end

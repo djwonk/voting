@@ -1,17 +1,18 @@
 require 'rubygems'
-require 'sinatra'
 require 'spec'
 require 'spec/interop/test'
 require 'rack/test'
 
-# set test environment
-Sinatra::Base.set :environment, :test
-Sinatra::Base.set :run, false
-Sinatra::Base.set :raise_errors, true
-Sinatra::Base.set :logging, false
+$LOAD_PATH.unshift("#{File.dirname(__FILE__)}/../lib")
+require "#{File.dirname(__FILE__)}/../lib/voting"
 
-require 'application'
-require File.dirname(__FILE__) + '/factories'
+# set test environment
+Voting::Application.set :environment, :test
+Voting::Application.set :run, false
+Voting::Application.set :raise_errors, true
+Voting::Application.set :logging, false
+
+require "#{File.dirname(__FILE__)}/factories"
 
 # establish in-memory database for testing
 DataMapper.setup(:default, "sqlite3::memory:")
