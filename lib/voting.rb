@@ -39,7 +39,7 @@ module Voting
   def self.default_config
     @defaults ||= {
       :root         => "#{FILE}/..",
-      :database_uri => "sqlite3:///#{FILE}/../#{Sinatra::Base.environment}.db"
+      :database_uri => "sqlite3://#{FILE}/../#{Sinatra::Base.environment}.db"
     }
   end
 end
