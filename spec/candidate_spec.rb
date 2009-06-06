@@ -23,8 +23,8 @@ describe 'Voting::Candidate' do
 
   specify 'should require a unique name within the election' do
     @candidate.save
-    @candidate = Voting::Candidate.new(:name => @candidate.name, :election => @candidate.election)
-    @candidate.save.should be_false
-    @candidate.errors[:name].should include("Name is already taken")
+    @candidate_2 = Voting::Candidate.new(:name => @candidate.name, :election => @candidate.election)
+    @candidate_2.save.should be_false
+    @candidate_2.errors[:name].should include("Name is already taken")
   end
 end
