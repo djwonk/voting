@@ -18,8 +18,9 @@ require 'voting/vote'
 require 'voting/helpers'
 
 module Voting
+  FILE        = File.expand_path(File.dirname(__FILE__))
   VERSION     = '0.1'
-  CONFIG_PATH = "#{File.expand_path(File.dirname(__FILE__))}/config.yml"
+  CONFIG_PATH = "#{FILE}/config.yml"
 
   def self.config
     @config ||= load_config
@@ -36,10 +37,10 @@ module Voting
   end
 
   def self.default_config
-    @defaults ||= { :root         => "#{File.expand_path(File.dirname(__FILE__))}/..",
-                    :database_uri => "sqlite3:///#{File.expand_path(File.dirname(__FILE__))}/../#{Sinatra::Base.environment}.db"
-                    #:database_uri => "sqlite3::memory:",
-                  }
+    @defaults ||= {
+      :root         => "#{FILE}/..",
+      :database_uri => "sqlite3://#{FILE}/../#{Sinatra::Base.environment}.db"
+    }
   end
 end
 

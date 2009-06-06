@@ -16,7 +16,7 @@ module Voting
       state :pre
       state :open
       state :closed, :enter => :winner
-      state :canceled
+      state :cancelled
 
       event :open_election do
         transition :from => :pre,  :to => :open
@@ -27,8 +27,8 @@ module Voting
       end
 
       event :cancel_election do
-        transition :from => :pre,  :to => :canceled
-        transition :from => :open, :to => :canceled
+        transition :from => :pre,  :to => :cancelled
+        transition :from => :open, :to => :cancelled
       end
     end
 

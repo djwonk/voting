@@ -32,13 +32,13 @@ describe 'Voting::Election' do
 
     specify 'should cancel the election from the pre state' do
       @election.cancel_election!.should be_true
-      @election.status.should == 'canceled'
+      @election.status.should == 'cancelled'
     end
 
     specify 'should cancel the election from the open state' do
       @election.open_election!
       @election.cancel_election!.should be_true
-      @election.status.should == 'canceled'
+      @election.status.should == 'cancelled'
     end
 
     specify 'should close the election and calculate the winner' do

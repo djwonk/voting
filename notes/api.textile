@@ -1,0 +1,117 @@
+h1. Intentions
+
+* Create a RESTful voting API
+* The election results should be fully open and transparent
+* However, the API will not return actual results until the voting is finished - the purpose being to prevent people from using current results to bias ongoing voting.
+* Client provides an identity string when a user votes
+* API trusts the client's identity string
+* Client doesn't have to worry about details of how to count a ballot. It only passes it along.
+
+To create an election, you must specify
+* a voting system
+* candidates for the election
+* when the voting starts
+* when the voting ends
+* some sort of credentials so that only the creator of the election can modify the election settings
+Note: Once in progress, the creator of an election cannot shut it down.  It must run its course.
+
+A voting system specifies:
+* The form of the ballot
+* The tallying method
+
+Ballot forms:
+* Binary ballot (start here)
+* Ranked ballot
+* Range ballot
+
+Tallying methods:
+* Single winner
+** Plurality (start here)
+* Multiple-winner
+** Proportional representation
+
+h2. RESTful API
+
+
+h3. Elections
+
+
+h4. List the elections
+
+GET /elections
+
+h4. Create an election
+
+POST /elections
+
+Returns:
+
+* owner token
+* polling place token
+
+h4. View an election
+
+GET /elections/101
+
+h4. Modify an election
+
+PUT /elections/101
+
+h4. Delete an election
+
+DELETE /election/101
+
+h3. Candidates
+
+h4. List the candidates
+
+GET /elections/101/candidates
+
+h4. Create a candidate
+
+POST /elections/101/candidates
+
+h4. View a candidate
+
+GET /elections/101/candidates
+
+h4. Modify a candidate
+
+PUT /elections/101/candidates
+
+h4. Delete a candidate
+
+DELETE /election/101/candidates
+
+h3. Votes
+
+h4. List the votes
+
+GET /elections/101/votes
+
+h4. Create a vote
+
+POST /elections/101/votes
+
+h4. View a vote
+
+GET /elections/101/votes
+
+h4. Modify a vote
+
+PUT /elections/101/votes
+
+h4. Delete a vote
+
+DELETE /election/101/votes
+
+h1. Misc
+
+h2. Voting vs. rating systems
+
+* Voting systems are designed to transform a group's preferences into a N winners, where N is fixed in advance. There are many voting systems because there is no one transformation that is "correct" for all situations according to all reasonable criteria (see Arrow's Impossibility Theorem).
+* Rating system do not imply how many "winners" (i.e. 5 star ratings) will occur. They do not have to ensure that a predetermined number of rated items percolate to the top.
+
+h2. Future
+
+* Nick said that he social web could benefit from having API's to provide rating services.
